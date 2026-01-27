@@ -198,6 +198,7 @@ class OpeaImagesGenerations(OpeaComponent):
             logger.info(f"prompt: {prompt}, guidance_scale: {guidance_scale}, true_cfg_scale: {true_cfg_scale} quality: {input.quality} width: {width} height: {height} num_images_per_prompt:{int(input.n)}")
 
         images = pipe(prompt=prompt,
+            negative_prompt="",
             generator=self.generator,
             true_cfg_scale=true_cfg_scale,
             width=width,
