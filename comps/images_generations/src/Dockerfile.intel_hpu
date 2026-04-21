@@ -19,10 +19,10 @@ ENV PYTHONPATH=/home/user:/usr/lib/habanalabs/:/home/user/optimum-habana
 
 # Install requirements and optimum habana, python-multipart
 ARG uvpip='uv pip install --system --no-cache-dir'
-RUN pip install --no-cache-dir --upgrade pip setuptools uv && \
+RUN pip install --no-cache-dir --upgrade pip setuptools==80.10.2 uv && \
     $uvpip -r /home/user/comps/images_generations/src/requirements-cpu.txt && \
     $uvpip python-multipart && \
-    $uvpip 'git+https://github.com/HabanaAI/optimum-habana-fork.git@aice/v1.22.0'
+    $uvpip 'git+https://github.com/HabanaAI/optimum-habana-fork.git@41dd2d22427e3306420358e31de4bb6b1c7302b1'
 
 USER user
 WORKDIR /home/user/comps/images_generations/src
